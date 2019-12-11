@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>IC AGENT | 메뉴</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<!--body bgcolor=#F8FCF3 topmargin=0 onload="win_load()" class="easyui-layout">
+<script type="text/javascript" defer="defer" -->
+<body onload="win_load()">
+<script type="text/javascript">
+	function win_load(){
+		var szOption = "" ;
+		
+		var w = 320; //팝업창의 가로크기(임의)
+		var h = 380; //팝업창의 세로크기(임의)
+		var url = './web_prop.html'; //팝업창의 주소(임의)
+		
+		var x = screen.availWidth - (w+10);  //팝업창의 가로위치 screen.availWidth
+		var y = screen.availHeight - (h+60); //팝업창의 세로위치 (상단에 띄우려면 0)screen.availHeight
+				
+		var agent = navigator.userAgent.toLowerCase();
+		if ( (navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || (agent.indexOf("msie") != -1)) {
+			szOption = ", resizable=no";
+			window.open(url,'','width='+w+',height='+h+',left='+x+',top='+y ,'status=no ,location=yes, directoryies=no, resizable=no, scrollbars=no, titlebar=no'+ szOption);
+		
+			setTimeout(function(){
+				window.parent.open('','_self').close();
+			}, 1000);
+		}else{
+			window.open(url,'','width='+w+',height='+h+',left='+x+',top='+y ,'status=no ,location=yes, directoryies=no, resizable=no, scrollbars=no, titlebar=no'+ szOption);
+		
+			setTimeout(function(){
+				window.parent.close();
+			}, 1000);
+		}
+		
+	}
+</script>
+
+</body>
+</html>
